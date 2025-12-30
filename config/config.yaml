@@ -1,0 +1,151 @@
+
+data:
+  raw_path: 'data/raw/MinoAI dataset.csv'
+  processed_path: 'data/processed/'
+  cleaned_filename: 'data_cleaned.csv'
+  engineered_filename: 'data_engineered.csv'
+
+cleaning:
+  min_price: 0                   
+  handle_missing_values: true     
+  remove_duplicates: true         
+  reference_date: '2024-12-31'    
+
+feature_engineering:
+  create_has_reviews: true
+  create_days_since_review: true
+  create_price_category: true
+  create_availability_level: true
+  create_host_experience: true
+  create_popularity_score: true
+  create_room_type_encoded: true
+  create_is_entire_home: true
+  create_host_multi_listing: true
+  create_neighbourhood_encoded: true
+
+price_categories:
+  budget: [0, 50]
+  economy: [50, 100]
+  mid_range: [100, 200]
+  premium: [200, 500]
+  luxury: [500, 100000]
+
+
+availability_levels:
+  low: [0, 30]
+  medium_low: [30, 100]
+  medium_high: [100, 300]
+  high: [300, 365]
+
+
+host_experience_levels:
+  new: [0, 1]
+  growing: [1, 3]
+  established: [3, 10]
+  power: [10, 100000]
+
+modeling:
+  test_size: 0.2                  
+  random_state: 42                
+  use_scaling: true               
+  models_to_train:
+    - linear_regression
+    - random_forest
+    - gradient_boosting
+
+linear_regression:
+  fit_intercept: true
+  normalize: false
+
+random_forest:
+  n_estimators: 100
+  max_depth: 20
+  min_samples_split: 2
+  min_samples_leaf: 1
+  random_state: 42
+  n_jobs: -1                      
+
+gradient_boosting:
+  n_estimators: 100
+  learning_rate: 0.1
+  max_depth: 5
+  min_samples_split: 2
+  min_samples_leaf: 1
+  random_state: 42
+
+clustering:
+  features:
+    - price
+    - minimum_nights
+    - number_of_reviews
+    - availability_365
+    - reviews_per_month
+  
+  optimal_k: 3                   
+  elbow_range: [2, 11]           
+  random_state: 42
+
+output:
+  models_path: 'models/'
+  visualizations_path: 'visualizations/'
+  reports_path: 'reports/'
+  eda_path: 'visualizations/eda/'
+  modeling_path: 'visualizations/modeling/'
+  clustering_path: 'visualizations/clustering/'
+
+visualization:
+  dpi: 300                        
+  figure_size: [12, 8]            
+  style: 'seaborn'               
+  colormap: 'viridis'           
+
+logging:
+  level: 'INFO'                   # Can be DEBUG, INFO, WARNING, ERROR
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+seeds:
+  numpy: 42
+  pandas: 42
+  sklearn: 42
+  random: 42
+
+features:
+  modeling_features:
+    - minimum_nights
+    - number_of_reviews
+    - availability_365
+    - reviews_per_month
+    - calculated_host_listings_count
+    - latitude
+    - longitude
+    - room_type_encoded
+    - neighbourhood_encoded
+    - has_reviews
+    - days_since_review
+    - popularity_score
+    - is_entire_home
+    - host_multi_listing
+  
+  target_variable: price
+
+analysis:
+  perform_eda: true
+  perform_cleaning: true
+  perform_feature_engineering: true
+  perform_modeling: true
+  perform_clustering: true
+  save_models: true
+  save_visualizations: true
+  save_processed_data: true
+
+metrics:
+  regression:
+    - r2_score
+    - mean_squared_error
+    - mean_absolute_error
+    - mean_absolute_percentage_error
+  
+  clustering:
+    - silhouette_score
+    - davies_bouldin_score
+    - calinski_harabasz_score
