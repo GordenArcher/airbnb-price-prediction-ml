@@ -271,11 +271,6 @@ print(f"Predicted Price: ${predicted_price[0]:.2f}")
 - `visualizations/modeling/` - Model evaluation visualizations
 - `visualizations/clustering/` - Clustering analysis plots
 
-## Author
-[Your Name]
-
-## Date
-[Project Date]
 
 ## License
 This project is for educational purposes.
