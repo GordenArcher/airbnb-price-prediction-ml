@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/airbnb-price-prediction-ml?style=social)](https://github.com/yourusername/airbnb-price-prediction-ml)
+[![GitHub Stars](https://img.shields.io/github/stars/GordenArcher/airbnb-price-prediction-ml?style=social)](https://github.com/yourusername/airbnb-price-prediction-ml)
 
 
 # Airbnb Dataset - Comprehensive Machine Learning Analysis
