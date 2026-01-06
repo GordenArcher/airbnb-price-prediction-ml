@@ -34,4 +34,6 @@ Thumbs.db
 config/config.local.yaml
 
 *.old
-*.bak
+*.bak*.pkl
+
+models/
